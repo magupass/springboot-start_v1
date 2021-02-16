@@ -112,7 +112,7 @@
 			AND deleted_yn = 'N'
 		]]>
 	</select>
-	<select id="selectBoardfileInformation" parameterType="map" resultType="board.board.dto.BoardFileDto">
+	<select id="selectBoardFileInformation" parameterType="map" resultType="board.board.dto.BoardFileDto">
 		<![CDATA[
 			SELECT
 				original_file_name,

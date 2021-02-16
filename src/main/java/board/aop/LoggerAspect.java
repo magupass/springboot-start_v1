@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class LoggerAspect {
 	
-	@Around("execution(* board..controller.*Controller.*(..)) or execution(* board..service.*Impl.*(..)) or execution(* board..mapper.*Mapper.*(..))")
+	@Around("execution(* board..controller.*Controller.*(..)) || execution(* board..service.*Impl.*(..)) || execution(* board..mapper.*Mapper.*(..))")
 	public Object logPrint(ProceedingJoinPoint joinPoint) throws Throwable {
 		String type = "";
 		String name = joinPoint.getSignature().getDeclaringTypeName();
