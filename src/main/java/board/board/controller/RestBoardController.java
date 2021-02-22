@@ -58,7 +58,6 @@ public class RestBoardController {
 
 	@RequestMapping(value = "/board/{boardIdx}", method = RequestMethod.PUT)
 	public String updateBoard(BoardDto board) throws Exception{
-		System.out.println("내용수정내용수정내용수정내용수정");
 		boardService.updateBoard(board);
 		return "redirect:/board";
 	}
@@ -79,7 +78,7 @@ public class RestBoardController {
 
 			response.setContentType("application/octet-stream");
 			response.setContentLength(files.length);
-			response.setHeader("Content-Disposition","attachment; fileName\"" + URLEncoder.encode(fileName,"UTF-8")+"\";" );
+			response.setHeader("Content-Disposition","attachment; fileName=\"" + URLEncoder.encode(fileName,"UTF-8")+"\";" );
 			response.setHeader("Content-Transfer-Encoding", "binary");
 
 			response.getOutputStream().write(files);
