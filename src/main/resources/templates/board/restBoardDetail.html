@@ -68,12 +68,13 @@
                 frm.submit();
             });
 
-            $("#delete").on("click", function (){
-                $("#method").val("delete");
-                var frm = $("#frm")[0];
-                frm.action = "/board/"+boardIdx;
+            $('#delete').on('click', function (){
+                $('#method').val('delete');
+                var frm = $('#frm')[0];
+                frm.action = "/board/" + $('#boardIdx').val();
                 frm.submit();
             });
+
         });
     </script>
 </body>
