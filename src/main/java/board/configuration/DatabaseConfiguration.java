@@ -16,6 +16,8 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 
+import java.util.Properties;
+
 @Configuration
 @PropertySource("classpath:/application.properties")
 //@EnableTransactionManagement
@@ -64,6 +66,12 @@ public class DatabaseConfiguration {
 	public HiddenHttpMethodFilter hiddenHttpMethodFilter(){
 		HiddenHttpMethodFilter filter = new HiddenHttpMethodFilter();
 		return filter;
+	}
+
+	@Bean
+	@ConfigurationProperties(prefix = "spring.jpa")
+	public Properties hibernateConfig(){
+		return new Properties();
 	}
 
 //	@Bean
