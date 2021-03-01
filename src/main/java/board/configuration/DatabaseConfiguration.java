@@ -19,7 +19,6 @@ import org.springframework.web.filter.HiddenHttpMethodFilter;
 import java.util.Properties;
 
 @Configuration
-@PropertySource("classpath:/application.properties")
 //@EnableTransactionManagement
 public class DatabaseConfiguration {
 	
