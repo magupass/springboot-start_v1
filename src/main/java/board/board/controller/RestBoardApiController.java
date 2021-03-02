@@ -5,6 +5,7 @@ import board.board.dto.BoardDto;
 import board.board.service.BoardService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,7 +32,7 @@ public class RestBoardApiController {
 
     @ApiOperation(value = "게시글 상세 내용 조회")
     @RequestMapping(value = "/api/board/{boardIdx}", method = RequestMethod.GET)
-    public BoardDto openBoardDetail(@PathVariable("boardIdx") int boardIdx) throws Exception{
+    public BoardDto openBoardDetail(@PathVariable("boardIdx") @ApiParam(value="게시글 번호") int boardIdx) throws Exception{
         return boardService.selectBoardDetail(boardIdx);
     }
 
@@ -44,7 +45,7 @@ public class RestBoardApiController {
 
     @ApiOperation(value = "게시글 삭제")
     @RequestMapping(value = "/api/board/{boardIdx}", method = RequestMethod.DELETE)
-    public String deleteBoard(@PathVariable("boardIdx") int boardIdx) throws Exception{
+    public String deleteBoard(@PathVariable("boardIdx") @ApiParam(value="게시글 번호") int boardIdx) throws Exception{
         boardService.deleteBoard(boardIdx);
         return "redirect:/board";
     }
